@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -13,11 +14,12 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      style: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w900,
-        color: Color(0XFF3C3F4D),
-      ),
+      style: GoogleFonts.cookie(),
+      // style: TextStyle(
+      //   fontSize: 15,
+      //   fontWeight: FontWeight.w900,
+      //   color: Color(0XFF3C3F4D),
+      // ),
       controller: controller,
       decoration: InputDecoration(
         filled: true,
