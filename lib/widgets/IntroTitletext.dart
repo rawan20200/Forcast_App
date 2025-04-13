@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SubTitleText extends StatelessWidget {
-  const SubTitleText({
+class IntroTitleText extends StatelessWidget {
+  const IntroTitleText({
     super.key,
     required this.images,
     required this.keyindex,
@@ -15,11 +15,12 @@ class SubTitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
       images.values.toList()[keyindex][valueindex],
       style: TextStyle(
-        fontWeight: FontWeight.w500,
-        fontSize: 15,
-        color: Colors.white,
+        fontWeight: FontWeight.w900,
+        fontSize: 25,
+        color: Colors.black,
       ),
     );
   }

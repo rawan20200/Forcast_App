@@ -1,9 +1,11 @@
 import 'package:cloud_app/Get/GetIntro.dart';
-import 'package:cloud_app/widgets/SubTitleText.dart';
-import 'package:cloud_app/widgets/TitleText.dart';
+import 'package:cloud_app/customs/CustomIntro_PageView.dart';
+import 'package:cloud_app/customs/CustomIntro_progressindicator.dart';
+import 'package:cloud_app/customs/CustomIntro_smoothpageindicator.dart';
+import 'package:cloud_app/customs/CustomIntro_textbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -11,79 +13,18 @@ class IntroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final Getintro getintro = Get.find();
     return Scaffold(
-      backgroundColor: Color(0XFF484B5B),
       appBar: AppBar(
-        backgroundColor: Color(0XFF484B5B),
         actions: [
-          TextButton(
-            onPressed: () {
-              getintro.onTap();
-              if (getintro.isintrofinished.value == true) {
-                Get.offAllNamed('countrysearch');
-              }
-            },
-            child: Text(
-              'Skip',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
+          CustomIntro_textbutton(getintro: getintro),
         ],
       ),
       body: Column(
         children: [
           SizedBox(
             height: 450,
-            child: PageView.builder(
-              onPageChanged: (value) {
-                getintro.onPageChanged(value);
-              },
-              controller: getintro.controller,
-              itemCount: getintro.intro.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Image(
-                      image: AssetImage(getintro.intro.keys.toList()[index]),
-                      height: 300,
-                    ),
-                    TitleText(
-                      images: getintro.intro,
-                      keyindex: index,
-                      valueindex: 0,
-                    ),
-                    TitleText(
-                      images: getintro.intro,
-                      keyindex: index,
-                      valueindex: 1,
-                    ),
-                    SubTitleText(
-                      images: getintro.intro,
-                      keyindex: index,
-                      valueindex: 2,
-                    ),
-                    SubTitleText(
-                      images: getintro.intro,
-                      keyindex: index,
-                      valueindex: 3,
-                    ),
-                  ],
-                );
-              },
-            ),
+            child: CustomIntro_PageView(getintro: getintro),
           ),
-          SmoothPageIndicator(
-            controller: getintro.controller,
-            count: 4,
-            effect: ExpandingDotsEffect(
-              activeDotColor: Colors.black,
-              dotColor: Colors.white,
-            ),
-          ),
-
+          CustomIntro_smoothpageindicator(getintro: getintro),
           SizedBox(height: 40),
           Obx(
             () => Stack(
@@ -92,18 +33,7 @@ class IntroScreen extends StatelessWidget {
                 SizedBox(
                   width: 50,
                   height: 50,
-                  child: CircularProgressIndicator(
-                    // strokeWidth: 3,
-                    backgroundColor: Colors.grey.shade700,
-                    value: getintro.progress.value,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Color.lerp(
-                        Color(0XFFE145A6),
-                        Color(0XFFC23ACC),
-                        getintro.progress.value,
-                      )!,
-                    ),
-                  ),
+                  child: CustomIntro_progressindicator(getintro: getintro),
                 ),
                 FilledButton(
                   style: FilledButton.styleFrom(
@@ -133,3 +63,11 @@ class IntroScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+

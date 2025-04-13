@@ -3,6 +3,7 @@ import 'package:cloud_app/customs/Custom_textfield.dart';
 import 'package:cloud_app/screens/weather_Map.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CountrySearch extends StatelessWidget {
   CountrySearch({super.key});
@@ -10,7 +11,6 @@ class CountrySearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF484B5B),
       body: Column(
         children: [
           SizedBox(height: 30),
@@ -36,19 +36,29 @@ class CountrySearch extends StatelessWidget {
                             SizedBox(height: 50),
                             Text(
                               "No country weather",
-                              style: TextStyle(
+                              style: GoogleFonts.inter(
                                 fontSize: 20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
                               ),
+                              // style: TextStyle(
+                              //   fontSize: 20,
+                              //   color: Colors.white,
+                              //   fontWeight: FontWeight.w700,
+                              // ),
                             ),
                             Text(
                               " has been searched yet",
-                              style: TextStyle(
+                              style: GoogleFonts.inter(
                                 fontSize: 20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
                               ),
+                              // style: TextStyle(
+                              //   fontSize: 20,
+                              //   color: Colors.white,
+                              //   fontWeight: FontWeight.w700,
+                              // ),
                             ),
                             Image.asset(
                               'assets/search.png',

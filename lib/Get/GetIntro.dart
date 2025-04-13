@@ -4,9 +4,10 @@ import 'package:get/get.dart';
 class Getintro extends GetxController {
   Map<String, dynamic> intro = {
     'assets/introone.png': [
-      'Detailed Hourly',
+      'Detailed Hourly  ',
       'Forecast',
       'Get in - depth weather',
+
       'information.',
     ],
     'assets/introtwo.png': [
@@ -17,13 +18,15 @@ class Getintro extends GetxController {
     ],
     'assets/introthree.png': [
       'Weather Around',
+
       'the World',
       'Add any location you want and',
+
       '  swipe easily to chnage.',
     ],
     'assets/introfour.png': [
       'Detailed Hourly',
-      ' Forecast',
+          ' Forecast',
       'Get in - depth weather',
       ' information.',
     ],
